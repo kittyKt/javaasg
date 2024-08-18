@@ -1,0 +1,4 @@
+FirstNm,LastNm,NRIC,Username,Password,Acc_Status,Role,DOB,Race,Rel,POB,Email,HomeAdd,Gender,Marital,Hp,BankNm,AccNum,EPF,TIN,Fm_Nm,Fm_NRIC,Relation,Fm_hp,Work_exp,DateJoined,DateResigned,Roles,Positions,Department,AnnualLeave,MedLeave,MaternityLeave,UnpaidLeave,InitGrossSalary,CurrGrossSalary,IncrementHistory,NewPosition,EffectiveD,PositionChangeHistory,PromotionRate
+kitty,cat,222222222222,kitty,kit,Locked,Human Resource Officer
+testing,new name,777888777888,iiiiii,8888888,Locked,System Administrator
+uuuuuuu,iiiiiiiii,888888889999,oooo,ppppp,Unlocked,System Administrator

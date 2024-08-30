@@ -1,0 +1,40 @@
+//Profile
+
+FirstName
+LastName
+NRIC
+Username 
+Password 
+Role 
+DOB
+Race
+Religion
+Place of Birth
+Email
+HomeAdd
+Gender
+Marital Status
+Hp num
+Bank name
+Bank num
+EPF
+T.I.N
+//Emergency Contact
+Name
+NRIC
+Relation
+Hp num
+//EmploymentDetails
+Work exp
+Date Joined
+Current Position
+Department
+Monthly Gross
+//Leave Entitlement
+AnnualLeave
+Medical
+MaternityLeave
+UnpaidLeave
+//History
+HistoryOfPositionChange
+HistoryofSalaryIncrement

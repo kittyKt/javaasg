@@ -29,7 +29,7 @@ Work exp
 Date Joined
 Current Position
 Department
-Monthly Gross
+Monthly Gross Salary
 //Leave Entitlement
 AnnualLeave
 Medical

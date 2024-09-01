@@ -37,7 +37,7 @@ public class HR_interface extends javax.swing.JFrame {
             "Email", "HomeAdd", "Gender", "Marital", "Hp", "BankNm", "AccNum", "EPF",
             "TIN", "Fm_Nm", "Fm_NRIC", "Relation", "Fm_Hp", "Work_exp", "DateJoined", "DateResigned",
             "CurrentPosition", "Department", "MonthlyGrossSalary", "AnnualLeave", "MedLeave", "MaternityLeave",
-            "UnpaidLeave", "NewPosition", "EffectiveDate","HistoryofPositionChange", "SalaryIncrement", "HistoryofSalaryIncrement" // Salary increment 37 history salary increment 38
+            "UnpaidLeave", "NewPosition", "EffectiveDate","HistoryofPositionChange", "SalaryIncrement", "HistoryofSalaryIncrement" 
         };
         
  

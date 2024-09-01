@@ -1,40 +1,40 @@
 //Profile
 
-FirstName
-LastName
-NRIC
-Username 
-Password 
-Role 
-DOB
-Race
-Religion
-Place of Birth
-Email
-HomeAdd
-Gender
-Marital Status
-Hp num
-Bank name
-Bank num
-EPF
-T.I.N
+0 FirstName 
+1 LastName 
+2 NRIC 
+3 Username 
+4 Password 
+6 Role 
+7 DOB
+8 Race
+9 Religion
+10 Place of Birth
+11 Email
+12 HomeAdd
+13 Gender
+14 Marital Status
+15 Hp num
+16 Bank name
+17 Bank num
+18 EPF
+19 T.I.N
 //Emergency Contact
-Name
-NRIC
-Relation
-Hp num
+20 Name
+21 NRIC
+22 Relation
+23 Hp num
 //EmploymentDetails
-Work exp
-Date Joined
-Current Position
-Department
-Monthly Gross Salary
+24 Work exp
+25 Date Joined
+26 Current Position
+27 Department
+28 Monthly Gross Salary
 //Leave Entitlement
-AnnualLeave
-Medical
-MaternityLeave
-UnpaidLeave
+29 AnnualLeave
+30 Medical
+31 MaternityLeave
+32 UnpaidLeave
 //History
-HistoryOfPositionChange
-HistoryofSalaryIncrement
+35 HistoryOfPositionChange
+37 HistoryofSalaryIncrement

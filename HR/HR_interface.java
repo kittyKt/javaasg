@@ -37,7 +37,8 @@ public class HR_interface extends javax.swing.JFrame {
             "Email", "HomeAdd", "Gender", "Marital", "Hp", "BankNm", "AccNum", "EPF",
             "TIN", "Fm_Nm", "Fm_NRIC", "Relation", "Fm_Hp", "Work_exp", "DateJoined", "DateResigned",
             "CurrentPosition", "Department", "MonthlyGrossSalary", "AnnualLeave", "MedLeave", "MaternityLeave",
-            "UnpaidLeave", "NewPosition", "EffectiveDate","HistoryofPositionChange", "SalaryIncrement", "HistoryofSalaryIncrement" 
+            "UnpaidLeave", "NewPosition", "EffectiveDate","HistoryofPositionChange", "SalaryIncrement", "HistoryofSalaryIncrement",
+            "profile"
         };
         
  
@@ -75,7 +76,7 @@ public class HR_interface extends javax.swing.JFrame {
 
     
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
@@ -144,27 +145,26 @@ public class HR_interface extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }// </editor-fold>                        
 
-    private void updatebutton(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatebutton
+    private void updatebutton(java.awt.event.ActionEvent evt) {                              
             
         DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
         int selectedRow = jTable2.getSelectedRow();
         
-        
-        
-
         Object[] rowData = null;
+        String profile  = null;
         if (selectedRow >= 0) {
             // Get the data from the selected row
             rowData = new Object[model.getColumnCount()];
             for (int i = 0; i < model.getColumnCount(); i++) {
                 rowData[i] = model.getValueAt(selectedRow, i);
             }
+            profile = (String) rowData[39];
         }
 
         // Create the EmployeeForm instance with row data
-        EmployeeForm form = new EmployeeForm(model, rowData);
+        EmployeeForm form = new EmployeeForm(model, rowData, profile);
 
         DefaultOption option = new DefaultOption() {
             public boolean closeWhenClickOutside() {
@@ -173,6 +173,8 @@ public class HR_interface extends javax.swing.JFrame {
         };
 
         String actions[] = new String[]{"Cancel", "Save"};
+        String finalProfilePath = profile; 
+
         GlassPanePopup.showPopup(new SimplePopupBorder(form, "Form", actions, (pc, i) -> {
             if (i == 1) { // "Save" button clicked
                 try {
@@ -214,7 +216,7 @@ public class HR_interface extends javax.swing.JFrame {
 
     
 // TODO add your handling code here:
-    }//GEN-LAST:event_updatebutton
+    }                             
 
     /**
      * @param args the command line arguments
@@ -234,10 +236,10 @@ public class HR_interface extends javax.swing.JFrame {
         });
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+    // Variables declaration - do not modify                     
     private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable2;
-    // End of variables declaration//GEN-END:variables
+    // End of variables declaration                   
 }

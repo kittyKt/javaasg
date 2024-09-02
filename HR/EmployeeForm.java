@@ -23,35 +23,27 @@ public class EmployeeForm extends javax.swing.JPanel {
     private int maternityLeave;
     private List<String> positionHistory = new ArrayList<>();
     private String oldPosition = "";
-//    private Double oldSalary = null;
-
-    private testing Testing;
+    private HR_interface Testing;
     private Object[] rowData;
-    
-    
-  
+    private String profile;
 
-    
 
-    public EmployeeForm(DefaultTableModel model, Object[] rowData) {
+    public EmployeeForm(DefaultTableModel model, Object[] rowData, String profile) {
         this.tableModel = model;
         this.rowData = rowData;
+        this.profile = profile;
         initComponents();
-        
-        // Initialize text fields to empty
         initializeTextFields();
         
-        
-        
-        // Initialize the details objects
-        employeeDetails = new Employee_Details(); // Assuming you have a default constructor
+        employeeDetails = new Employee_Details();
         employmentDetails = new Employment_Details();
-        System.out.println("Created Employment Details Instance: " + System.identityHashCode(employmentDetails));
+
+        
+//        System.out.println("Created Employment Details Instance: " + System.identityHashCode(employmentDetails));
 
         initializeForm();
 
         
-        // Check if this is an initial entry
         isInitialEntry = (rowData == null);
         firstAttempt = isInitialEntry;
         
@@ -406,8 +398,6 @@ public class EmployeeForm extends javax.swing.JPanel {
         String hmAdr = jTextArea1.getText();
         String gender = (String) jComboBox1.getSelectedItem();
         String marital = (String) jComboBox2.getSelectedItem();
-        
-
         String hp = jTextField11.getText();
         String bankNm = jTextField12.getText();
         String accNo = jTextField13.getText();
@@ -606,7 +596,7 @@ public class EmployeeForm extends javax.swing.JPanel {
             firstName, lastName, nric, username, password, accStatus, roles, dob, race, religion, pob, email, hmAdr, gender, marital,
             hp, bankNm, accNo, epf, tax, fmNm, fmNric, relation, fmHp, work, dateJoined, dateResigned, currentPosition, department, updatedSalary,
             employmentDetails.getAnnualLeave(), employmentDetails.getMedLeave(), maternityLeave, employmentDetails.getUnpaidLeave(), newPosition, effectiveDate,
-            updatedPositionDetail, salaryIncrementValue, historyDetail 
+            updatedPositionDetail, salaryIncrementValue, historyDetail, profile, 
        
         };
         
@@ -780,7 +770,7 @@ public class EmployeeForm extends javax.swing.JPanel {
 
         
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -1628,82 +1618,82 @@ public class EmployeeForm extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
-    }// </editor-fold>//GEN-END:initComponents
+    }// </editor-fold>                        
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {                                            
 
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }                                           
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {                                            
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }                                           
 
-    private void jTextField13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField13ActionPerformed
+    private void jTextField13ActionPerformed(java.awt.event.ActionEvent evt) {                                             
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField13ActionPerformed
+    }                                            
 
-    private void jTextField14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField14ActionPerformed
+    private void jTextField14ActionPerformed(java.awt.event.ActionEvent evt) {                                             
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField14ActionPerformed
+    }                                            
 
-    private void jTextField15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField15ActionPerformed
+    private void jTextField15ActionPerformed(java.awt.event.ActionEvent evt) {                                             
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField15ActionPerformed
+    }                                            
 
-    private void jTextField16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField16ActionPerformed
+    private void jTextField16ActionPerformed(java.awt.event.ActionEvent evt) {                                             
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField16ActionPerformed
+    }                                            
 
-    private void jTextField17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField17ActionPerformed
+    private void jTextField17ActionPerformed(java.awt.event.ActionEvent evt) {                                             
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField17ActionPerformed
+    }                                            
 
-    private void jTextField18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField18ActionPerformed
+    private void jTextField18ActionPerformed(java.awt.event.ActionEvent evt) {                                             
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField18ActionPerformed
+    }                                            
 
-    private void jTextField19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField19ActionPerformed
+    private void jTextField19ActionPerformed(java.awt.event.ActionEvent evt) {                                             
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField19ActionPerformed
+    }                                            
 
-    private void jTextField20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField20ActionPerformed
+    private void jTextField20ActionPerformed(java.awt.event.ActionEvent evt) {                                             
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField20ActionPerformed
+    }                                            
 
-    private void jTextField21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField21ActionPerformed
+    private void jTextField21ActionPerformed(java.awt.event.ActionEvent evt) {                                             
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField21ActionPerformed
+    }                                            
 
-    private void jTextField22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField22ActionPerformed
+    private void jTextField22ActionPerformed(java.awt.event.ActionEvent evt) {                                             
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField22ActionPerformed
+    }                                            
 
-    private void jTextField23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField23ActionPerformed
+    private void jTextField23ActionPerformed(java.awt.event.ActionEvent evt) {                                             
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField23ActionPerformed
+    }                                            
 
-    private void jTextField24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField24ActionPerformed
+    private void jTextField24ActionPerformed(java.awt.event.ActionEvent evt) {                                             
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField24ActionPerformed
+    }                                            
 
-    private void jTextField26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField26ActionPerformed
+    private void jTextField26ActionPerformed(java.awt.event.ActionEvent evt) {                                             
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField26ActionPerformed
+    }                                            
 
-    private void jTextField27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField27ActionPerformed
+    private void jTextField27ActionPerformed(java.awt.event.ActionEvent evt) {                                             
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField27ActionPerformed
+    }                                            
 
-    private void jTextField28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField28ActionPerformed
+    private void jTextField28ActionPerformed(java.awt.event.ActionEvent evt) {                                             
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField28ActionPerformed
+    }                                            
 
-    private void jTextField29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField29ActionPerformed
+    private void jTextField29ActionPerformed(java.awt.event.ActionEvent evt) {                                             
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField29ActionPerformed
+    }                                            
 
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+    // Variables declaration - do not modify                     
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
@@ -1785,5 +1775,5 @@ public class EmployeeForm extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
-    // End of variables declaration//GEN-END:variables
+    // End of variables declaration                   
 }

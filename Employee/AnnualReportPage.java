@@ -28,7 +28,7 @@ public class AnnualReportPage extends JFrame {
 
     private String[] employeeDetails;
     private JTable reportTable;
-    private int reportYear; //Store selected year
+    private int reportYear;
 
     public AnnualReportPage(String[] employeeDetails) {
         this.employeeDetails = employeeDetails;

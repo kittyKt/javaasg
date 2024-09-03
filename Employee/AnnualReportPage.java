@@ -1,4 +1,12 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 
+/**
+ *
+ * @author user
+ */
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
@@ -20,7 +28,7 @@ public class AnnualReportPage extends JFrame {
 
     private String[] employeeDetails;
     private JTable reportTable;
-    private int reportYear; 
+    private int reportYear; //Store selected year
 
     public AnnualReportPage(String[] employeeDetails) {
         this.employeeDetails = employeeDetails;
@@ -52,17 +60,17 @@ public class AnnualReportPage extends JFrame {
         add(inputPanel, BorderLayout.NORTH);
         add(generateReportButton, BorderLayout.SOUTH);
 
-        
+        // Table setup
         String[] columnNames = {"Day", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
         DefaultTableModel tableModel = new DefaultTableModel(columnNames, 31);
         reportTable = new JTable(tableModel);
 
- 
+        // Setting up row numbers (days)
         for (int i = 0; i < 31; i++) {
             reportTable.setValueAt(i + 1, i, 0);
         }
-
-      
+        
+        // Setting custom renderer for cell coloring
         reportTable.setDefaultRenderer(Object.class, new AttendanceCellRenderer());
 
         JScrollPane scrollPane = new JScrollPane(reportTable);
@@ -75,17 +83,17 @@ public class AnnualReportPage extends JFrame {
         DefaultTableModel tableModel = (DefaultTableModel) reportTable.getModel();
         clearTable(tableModel);
         
-        
+        // Store the selected year for use in the renderer
         reportYear = Integer.parseInt(year);
 
-       
-        Path filePath = Paths.get("C:\\Users\\4hana\\OneDrive - Asia Pacific University\\( JP ) Java Programming\\homepageGUI\\homepageGUI\\src\\attendance_records.csv");
+        // Read and process data from the CSV file
+        Path filePath = Paths.get("C:\\Users\\user\\OneDrive - Asia Pacific University\\work\\homepageGUI\\src\\attendance_records.csv");
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
         try (BufferedReader br = Files.newBufferedReader(filePath)) {
             String line;
             while ((line = br.readLine()) != null) {
-                
+                // Skip header
                 if (line.startsWith("Username")) {
                     continue;
                 }
@@ -94,14 +102,14 @@ public class AnnualReportPage extends JFrame {
                 String recordUsername = values[0];
                 LocalDate date = LocalDate.parse(values[1], formatter);
 
-            
+                // Check if the record matches the current employee and year
                 if (recordUsername.equals(employeeDetails[3]) && date.getYear() == Integer.parseInt(year)) {
                     int day = date.getDayOfMonth() - 1;
                     int month = date.getMonthValue();
                     
                     String note = (values.length > 5) ? values[5] : "";
 
-                    
+                    // Set the note for the corresponding day and month
                     tableModel.setValueAt(note, day, month);
                 }
             }
@@ -119,29 +127,32 @@ public class AnnualReportPage extends JFrame {
         }
     }
 
-
+    // Custom renderer to color cells based on leave type
     private class AttendanceCellRenderer extends DefaultTableCellRenderer {
         @Override
         public Component getTableCellRendererComponent(JTable table, Object value,
                                                        boolean isSelected, boolean hasFocus,
                                                        int row, int column) {
-            super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
-
+            Component cell = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
             
+            // Set the font color to black
+            cell.setForeground(Color.BLACK);
+
+            // Grey background for the date numbers in the first column
             if (column == 0) {
                 setBackground(Color.LIGHT_GRAY);
                 setHorizontalAlignment(CENTER);
             } else {
-              
+                // Check if the date exists
                 int day = row + 1; 
                 int month = column;
 
                 if (month > 0 && !isValidDate(reportYear, month, day)) {
-                    setBackground(Color.GRAY);
+                    setBackground(Color.GRAY); // Grey for non-existent dates
                 } else if (isWeekend(reportYear, month, day)) {
-                    setBackground(Color.GRAY);
+                    setBackground(Color.GRAY); // Grey for weekends
                 } else {
-                
+                    // Color the attendance based on the notes
                     if (value != null && value.toString().matches("(?i)Medical Leave|Annual Leave|Unpaid Leave|Maternity Leave")) {
                         setBackground(Color.RED);
                     } else {
@@ -150,7 +161,7 @@ public class AnnualReportPage extends JFrame {
                 }
                 setHorizontalAlignment(CENTER);
             }
-            return this;
+            return cell;
         }
         
         private boolean isValidDate(int year, int month, int day) {
@@ -158,7 +169,7 @@ public class AnnualReportPage extends JFrame {
             return day <= yearMonth.lengthOfMonth();
         }
         
-   
+        // Method to check if a given day is a weekend (Saturday or Sunday)
         private boolean isWeekend(int year, int month, int day) {
             if (!isValidDate(year, month, day)) {
                 return false; 
